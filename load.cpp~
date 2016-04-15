@@ -1,0 +1,47 @@
+#include "main.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+book* load(char* data, book *beg)
+  {
+  book *pBk, *end;
+  int i, p;
+  char c;
+  string str;
+  ifstream f;
+  f.open(data);
+  for (i=0; i<4; i++)
+    f >> p;
+  cout << p << endl;
+  end=NULL;
+  beg=NULL;
+  while(!f.eof())	
+    {
+    if(f.eof())
+    return beg;
+    pBk=new book;
+    f >> pBk->id >> pBk->jnr >> pBk->nal >> pBk->avtf >> pBk->avti >> pBk->avto pBk->ttl;
+    //f.clear();
+    //getline(f, pBk->ttl);
+    cout << "'"<< c << "'"  << pBk->ttl<< "'";
+    /*if (pBk->jnr==0)
+      return beg;*/
+        if(beg==NULL)
+      {
+      //cout << "указатель на начало изменен   ";
+      beg=pBk;
+      }
+    else
+      {
+      //cout << "указатель на начало не изменнен   ";
+      end->next=pBk;
+      }
+    end=pBk;
+    end->next=NULL;
+    //pBk->show();
+    //cout << endl;
+    }
+  return beg;  
+  }
+  

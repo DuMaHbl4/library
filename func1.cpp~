@@ -1,0 +1,70 @@
+//#include "main.h"
+#include <iostream>
+using namespace std;
+          
+class book
+  {
+  int id;
+  int jnr;
+  bool nal;
+  char ttl[100];
+  char avtf[100];
+  char avti[100];
+  char avto[100];
+public:
+  class book *next;
+  void add(sps &s1);
+  void show();
+  friend void addd(book *b);
+  };
+  
+class sps
+  {
+  book *pBk;
+  book *beg;
+  book *end;
+  void addd(book *b);
+  };
+
+void book::show()
+  {
+  cout << id << ' ' << jnr << ' ' << avtf << ' ' << avti << ' ' << avto << ' ' << ttl << endl;
+  }
+  
+void sps::addd(book *b)
+  {
+  pBk=b;
+  if (beg==NULL && end==NULL) 
+    beg=pBk;
+  else 
+    end->next=pBk;
+  end=pBk;
+  end->next=NULL;
+  }
+      
+void book::add (sps &s1)
+  {
+  cout << "Введите айди " << endl;
+  cin >> this->id;
+  cout << "\nВведите тип жанра книги:\n1. Детектив\n2. Классика\n3. Любовный роман\n4. Повесть\n5. Приключения\n6. Роман\n7. Справочник\n8.Фантакстика\n ";
+  cin >> this->jnr;
+  cout << "Введите фамилию автора книги: ";
+  cin >> this->avtf;
+  cout << "Введите имя автора книги: ";
+  cin >> this->avti;
+  cout << "Введите отчество автора книги: ";
+  cin >> this->avto;
+  cout << "Введите название книги: ";
+  cin >> this->ttl;
+  this->nal=1;
+  s1->sps(this);
+  }
+
+int main()
+  {
+  sps s1;
+  book b, 
+  b.add(s1);
+  b.show();
+  return 0;
+  }

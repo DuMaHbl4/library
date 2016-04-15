@@ -1,0 +1,38 @@
+#include <fstream>
+#include <iostream>
+using namespace std;
+class book
+  {
+  int id;
+  int jnr;
+  bool nal;
+  char ttl[150];
+  char avtf[100];
+  char avti[100];
+  char avto[100];
+public:
+  book *next;		//указатель на следующий эемент
+  void add(int id);		//функция добавления
+  void show(const int& pol, const int& kol);		//функция показа книги
+  void load(char* str);		//добавление книги(для загрузки из файла)
+  bool poid(const int& idd);		//
+  bool pottl(string ttll);
+  bool poavtf(string ttll);
+  bool pojnr(int jnrr);
+  int getNal();
+  void change();
+  string getTtl();
+  string getAvtf();
+  void save(int& ids, int& jnrs, int& nals, char* avtfs, char* avtis, char* avtos, char* ttls); 
+  int getId();
+  };
+
+int menu(char* data);
+book* add(char* data, book *beg);
+book* load(char* data);
+int save(char* data, book *beg);
+int prov(char* data);  
+book* show(char* data, book *pBk);
+bool poisk(char* data, book *beg);
+bool change(char* data, book *beg);
+book* delet(char* data, book *beg);

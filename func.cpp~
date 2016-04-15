@@ -1,0 +1,57 @@
+//#include "main.h"
+#include <iostream>
+using namespace std;
+
+class book
+  {
+  int id;
+  int jnr;
+  bool nal;
+  char ttl[100];
+  char avtf[100];
+  char avti[100];
+  char avto[100];
+  class book *next;
+public:
+  void add(book *b);
+  void show();
+  };
+  
+/*class sps()
+  {
+  book *pBk;
+  book *beg;
+  book *end;
+  }*/
+
+void book::show()
+  {
+  cout << id << ' ' << jnr << ' ' << avtf << ' ' << avti << ' ' << avto << ' ' << ttl << endl;
+  }
+    
+void book::add (book *b)
+  {
+  cout << "Введите айди " << endl;
+  cin >> id;
+  cout << "\nВведите тип жанра книги:\n1. Детектив\n2. Классика\n3. Любовный роман\n4. Повесть\n5. Приключения\n6. Роман\n7. Справочник\n8.Фантакстика\n ";
+  cin >> jnr;
+  cout << "Введите фамилию автора книги: ";
+  cin >> avtf;
+  cout << "Введите имя автора книги: ";
+  cin >> avti;
+  cout << "Введите отчество автора книги: ";
+  cin >> avto;
+  cout << "Введите название книги: ";
+  cin >> b->ttl;
+  //pBk->nal=1;
+  b->nal=1;   
+  }
+
+int main()
+  {
+  book b, *pBk;
+  pBk=&b;
+  b.add(pBk);
+  b.show();
+  return 0;
+  }
